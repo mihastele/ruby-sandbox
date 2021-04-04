@@ -1,8 +1,13 @@
+require 'bcrypt'
+
+include BCrypt
+
 
 class Dummy
   attr_accessor(:hello, :hello2)
   @hello
   @hello2
+
 
   def to_s
     return "#{@hello} and #{@hello2} to U!!!!"
@@ -28,3 +33,5 @@ puts dummyClass
 
 outer_function(dummyClass)
 outer_function("hello")
+
+my_pwd = BCrypt::Password.create("")
