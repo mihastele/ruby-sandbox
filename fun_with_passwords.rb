@@ -32,11 +32,10 @@ def authenticate_user(username, password, list_of_users)
     if record[:name] == username && verify_hash_digest(record[:password]) == password
       puts "Authenticated"
       return
-    else
-      puts "Nope"
-      return
     end
   end
+  puts "Nope"
+  return
 end
 
 new_password = create_hash_digest("1234")
@@ -47,7 +46,9 @@ puts new_password == "1234"
 secure_init_list(users)
 
 authenticate_user("marko", "11111", users)
+authenticate_user("mirko", "11111", users)
 authenticate_user("marko", "12111", users)
+authenticate_user("mirko", "12111", users)
 
 
 
